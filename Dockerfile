@@ -1,5 +1,5 @@
-#FROM node:20.19.2-alpine3.21
-FROM demonstrationorg/dhi-node:20.19.2-alpine3.21-dev
+FROM node:20.19.2-alpine3.21
+#FROM demonstrationorg/dhi-node:20.19.2-alpine3.21-dev
 
 # Metadata Labels
 LABEL org.opencontainers.image.vendor="DemonstrationOrg" \
