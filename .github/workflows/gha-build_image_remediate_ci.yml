@@ -138,7 +138,8 @@ jobs:
         if: ${{ github.event_name != 'pull_request_target' }}
         uses: docker/scout-action@v1.18.1
         with:
-          command: quickview, cves, recommendations
+          command: cves
+          #command: quickview, cves, recommendations
           image: ${{ steps.meta.outputs.tags }}
           #sarif-file: sarif.output.json
           sarif-file: docker-scout.sarif
@@ -149,9 +150,9 @@ jobs:
       - name: Upload SARIF result
         id: upload-sarif
         if: ${{ github.event_name != 'pull_request_target' }}
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: sarif.output.json
+          sarif_file: docker-scout.sarif
       - run: echo "✅ Upload SARIF result status is ${{ job.status }}."
   
 
